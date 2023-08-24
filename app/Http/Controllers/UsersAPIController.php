@@ -50,6 +50,7 @@ class UsersAPIController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email,',
+            'role' => 'required|in:user,admin',
         ]);
 
         if ($validator->fails()) {

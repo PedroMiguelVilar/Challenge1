@@ -289,6 +289,7 @@
 
 
     <script>
+        //Script to filter
         var idFilterInput = document.getElementById("id-filter");
         idFilterInput.addEventListener("keyup", filterTable);
 
