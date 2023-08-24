@@ -87,14 +87,25 @@ class AdminController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
+            'role' => 'required|in:user,admin',
         ]);
 
         // Update user information
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->role = $request->input('role');
         $user->save();
 
         return redirect()->route('home');
+    }
+
+    public function deleteProfile($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->route('index')->with('success', 'Delete completed successfully.');
     }
     
 

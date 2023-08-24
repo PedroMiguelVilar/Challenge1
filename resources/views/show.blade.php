@@ -35,7 +35,16 @@
                                 <a class="dropdown-item" href="{{ route('users.edit', ['id' => $user->id]) }}">
                                     {{ __('Edit User') }}
                                 </a>    
+                                <form action="{{ route('users.delete', ['id' => $user->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    
+                                    <button type="submit" class="dropdown-item">
+                                        {{ __('Delete User') }}
+                                    </button>
+                                </form>
                             </div>
+                            
                         </li>
                     </span>
                 </td>

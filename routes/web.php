@@ -37,6 +37,7 @@ Route::group(['middleware' => 'check.admin'], function () {
     Route::get('/users/{id}/edit', [AdminController::class, 'edit'])->name('users.edit');
 
     Route::delete('/users/bulk-delete', [AdminController::class, 'bulkDelete'])->name('users.bulkDelete');
+    Route::delete('/users/{id}/delete', [AdminController::class, 'deleteProfile'])->name('users.delete');
     Route::put('/users/{id}/update', [AdminController::class, 'updateProfile'])->name('update-profile');
 
     Route::get('/search', [SearchController::class, 'search'])->name('search');
